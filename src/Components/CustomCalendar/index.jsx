@@ -2,7 +2,7 @@
 /*                 DEPENDENCIES               */
 /* ------------------------------------------ */
 // Packages
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { VscCalendar } from 'react-icons/vsc';
 import {
@@ -28,6 +28,17 @@ function CustomCalendar() {
    /* --------------- CONSTS ---------------- */
    const [selectedDate, setSelectedDate] = useState(new Date());
    const [activeDate, setActiveDate] = useState(new Date());
+   const [events, setEvents] = useState([]);
+
+   /* ------------------------ */
+   /*         GET EVENTS       */
+   /* ------------------------ */
+   const getEvents = () => {
+      fetch('EventsAPI.json')
+      .then((response) => response.json())
+      .then((response) => setEvents(response))
+   }
+   useEffect(() => getEvents(), [])
 
    /* ------------------------ */
    /*    GET CALENDAR HEADER   */
@@ -75,9 +86,9 @@ function CustomCalendar() {
       const cloneDate = currentDate;
       week.push(
         <div
-          className={`day ${
-            isSameMonth(currentDate, activeDate) ? "" : "inactiveDay"
-          } ${isSameDay(currentDate, selectedDate) ? "selectedDay" : ""}
+          className={`day 
+          ${isSameMonth(currentDate, activeDate) ? "" : "inactiveDay"} 
+          ${isSameDay(currentDate, selectedDate) ? "selectedDay" : ""}
           ${isSameDay(currentDate, new Date()) ? "today" : ""}`}
           onClick={() => {
             setSelectedDate(cloneDate);
