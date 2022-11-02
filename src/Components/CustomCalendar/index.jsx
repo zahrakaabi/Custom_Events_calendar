@@ -4,6 +4,7 @@
 // Packages
 import { useState } from 'react';
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { VscCalendar } from 'react-icons/vsc';
 import {
     format,
     startOfWeek,
@@ -16,8 +17,6 @@ import {
     isSameMonth,
     isSameDay
   } from "date-fns";
-//08 : 40 - 08 : 55
-//12 : 50 - 13 : 10 
 
 // Styles
 import './index.css';
@@ -34,11 +33,11 @@ function CustomCalendar() {
    /*    GET CALENDAR HEADER   */
    /* ------------------------ */
    const getHeader = () => (
-    <div className="calendar-header flex items-center">
-        {/*<div className="currentYear">
-            <img src="" alt="calendar_icon" />
+    <div className="calendar-header flex items-center justify-center">
+        <div className="currentYear flex items-center">
+            <VscCalendar className="calendarIcon" />
             <h2 className="currentMonth">{format(activeDate, "yyyy")}</h2>
-        </div>*/}
+        </div>
         <AiOutlineLeft className="navIcon" onClick={() => setActiveDate(subMonths(activeDate, 1))} />
         <h2 className="currentMonth">{format(activeDate, "MMMM")}</h2>
         <AiOutlineRight className="navIcon" onClick={() => setActiveDate(addMonths(activeDate, 1))} />
@@ -56,14 +55,13 @@ function CustomCalendar() {
     for (let day = 0; day < 7; day++) {
         weekDays.push(
           <div className="day weekNames">
-            {format(addDays(weekStartDate, day), "E")}
+            {format(addDays(weekStartDate, day), "EEEEEE")}
           </div>
         );
     }
     /* **** RENDERING **** */
     return <div className="weekContainer">{weekDays}</div>;
    };
-
 
 
    /* -------------------------------- */

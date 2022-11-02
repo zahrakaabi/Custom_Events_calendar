@@ -1,19 +1,50 @@
 .calendar-wrapper {
     width: 30vw;
-    min-height: 50vh;
+    min-height: 60vh;
+    position: relative;
     background-color: #fff;
 }
 
 /* ------------------------ */
 /*        GET HEADER        */
 /* ------------------------ */
+.calendar-header {
+    margin-bottom: 0.5rem;
+}
+
+.currentYear {
+    font-size: 3rem !important;
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+
+.calendarIcon {
+    width: 20px;
+    margin-right: 0.5rem;
+    color: #2b2b38;
+}
+
+.currentMonth {
+    color: #2b2b38;
+    font-family: monospace;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-right: 1.5rem;
+}
+
 .navIcon {
     width: 20px;
     height: 20px;
-    padding: 8px;
     cursor: pointer;
-  }
-  
+    color: #2b2b38;
+}
+
+.navIcon:nth-child(2) {
+    margin-right: 1.5rem;
+}
+
 .navIcon:hover {
     border-radius: 50%;
     background: #efefee;
@@ -25,4 +56,61 @@
 .weekContainer {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+}
+
+/* ------------------------ */
+/*    GET WEEK DAYS NAMES   */
+/* ------------------------ */
+.weekNames {
+    cursor: text !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+.day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #84848d;
+    cursor: pointer;
+    font-family: monospace;
+}
+
+/* -------------------------------- */
+/*  GENERATE DATES FOR CURRENT WEEK */
+/* -------------------------------- */
+.today,
+.selectedDay {
+    color: #fff;
+    z-index: 0;
+    position: relative;
+}
+
+.today::before,
+.selectedDay::before {
+    content: '';
+    z-index: -1;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background: #00d16c;
+    border-radius: 50%;
+}
+
+.today::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    bottom: 0;
+    position: absolute;
+    background: #00d16c;
+    border-radius: 50%;
+}
+
+.inactiveDay {
+    color: #bfbfc5;
 }
