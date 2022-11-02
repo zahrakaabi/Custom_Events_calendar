@@ -1,0 +1,28 @@
+.calendar-wrapper {
+    width: 30vw;
+    min-height: 50vh;
+    background-color: #fff;
+}
+
+/* ------------------------ */
+/*        GET HEADER        */
+/* ------------------------ */
+.navIcon {
+    width: 20px;
+    height: 20px;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+.navIcon:hover {
+    border-radius: 50%;
+    background: #efefee;
+}
+
+/* ------------------------ */
+/*      WEEK DAYS NAMES     */
+/* ------------------------ */
+.weekContainer {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}

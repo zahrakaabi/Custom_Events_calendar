@@ -3,6 +3,9 @@
 /* ------------------------------------------ */
 // Packages
 
+// UI Local Components
+import { CustomCalendar } from './Components';
+
 // Styles
 import './shared/styles/global.css';
 
@@ -12,9 +15,7 @@ import './shared/styles/global.css';
 function App() {
   /* ************* RENDERING **************** */
   return (
-    <div className="App">
-      hello app
-    </div>
+    <CustomCalendar />
   );
 }
 
