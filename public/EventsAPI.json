@@ -1,37 +1,42 @@
 [
     {
         "id": 0,
-        "title": "Make a CV",
+        "title": "Do your homrwork",
         "date": "02-11-2022"
     },
     {
         "id": 1,
-        "title": "Send CV",
+        "title": "Enjoy this beautifull life",
         "date": "10-11-2022"
     },
     {
         "id": 2,
-        "title": "Work, Work",
+        "title": "Go to the gym",
         "date": "14-11-2022"
     },
     {
         "id": 3,
-        "title": "Graduate",
+        "title": "Cook healthy food",
         "date": "02-10-2022" 
     },
     {
         "id": 4,
-        "title": "Go Shop",
+        "title": "Read the book",
         "date": "30-10-2022"
     },
     {
         "id": 5,
-        "title": "christmas",
+        "title": "Code Code code code",
         "date": "31-12-2022"
     },
     {
         "id": 6,
-        "title": "Travel to Japan",
+        "title": "Design the billbboard",
         "date": "17-11-2022"
+    },
+    {
+        "id": 7,
+        "title": "By your bread",
+        "date": "11-01-2023"
     }
 ]

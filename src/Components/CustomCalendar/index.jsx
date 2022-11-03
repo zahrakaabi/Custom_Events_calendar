@@ -40,6 +40,8 @@ function CustomCalendar() {
    }
    useEffect(() => getEvents(), [])
 
+   const EVENTS_DATES = events?.map(({ date }) => date);
+
    /* ------------------------ */
    /*    GET CALENDAR HEADER   */
    /* ------------------------ */
@@ -84,11 +86,14 @@ function CustomCalendar() {
     const week = [];
     for (let day = 0; day < 7; day++) {
       const cloneDate = currentDate;
+      const FORMATTED_CURENT_DATE = format(currentDate, 'dd-LL-yyyy');
+      const EVENT_DATE = EVENTS_DATES?.find((eventDate) => FORMATTED_CURENT_DATE === eventDate);
       week.push(
         <div
           className={`day 
           ${isSameMonth(currentDate, activeDate) ? "" : "inactiveDay"} 
           ${isSameDay(currentDate, selectedDate) ? "selectedDay" : ""}
+          ${EVENT_DATE ? "eventDay" : ""}
           ${isSameDay(currentDate, new Date()) ? "today" : ""}`}
           onClick={() => {
             setSelectedDate(cloneDate);
@@ -128,13 +133,29 @@ function CustomCalendar() {
     return <div className="weekContainer">{allWeeks}</div>;
    };
 
+   /* ------------------------ */
+   /*       GET EVENTS DAY     */
+   /* ------------------------ */
+   const SELECTED_DATE_EVENTS = events?.filter((event) => event.date === format(selectedDate, 'dd-LL-yyyy'));
+
   /* ************* RENDERING **************** */
   return (
-    <div className='calendar-wrapper flex justify-center items-center'>
-        <div className="calendar-container">
-            {getHeader()}
-            {getWeekDaysNames()}
-            {getDates()}
+    <div className="calendar flex items-center">
+        <div className="events-wrapper flex justify-center items-center">
+            <div className="events-container text-center">
+                <h4 className="floated-text">{format(selectedDate, 'd')}</h4>
+                <span className="event-day-date">{format(selectedDate, 'd')}</span><br />
+                <span className="event-day">{format(selectedDate, 'EEEE')}</span>
+                {SELECTED_DATE_EVENTS.length > 0 ? SELECTED_DATE_EVENTS?.map((event) => <div className="event">{event.title}</div>) : <div className="event">No events for this day</div>}
+            </div>
+        </div>
+
+        <div className='calendar-wrapper flex justify-center items-center'>
+            <div className="calendar-container">
+                {getHeader()}
+                {getWeekDaysNames()}
+                {getDates()}
+            </div>
         </div>
     </div>
   );

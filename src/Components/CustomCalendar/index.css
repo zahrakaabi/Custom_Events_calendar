@@ -1,6 +1,54 @@
+/* ------------------------ */
+/*      EVENT CONTAINER     */
+/* ------------------------ */
+.events-wrapper {
+    width: 26vw;
+    min-height: 70vh;
+    background-color: #2b2b38;
+}
+
+.events-container {
+    z-index: 0;
+    position: relative;
+}
+
+.floated-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    font-size: 20rem;
+    color: rgba(40, 40, 52, 0.918);
+    font-family: monospace;
+}
+
+.events-container span {
+    color: #fff;
+    font-family: monospace;
+    line-height: 1;
+}
+
+.event-day-date {
+    font-size: 7rem;
+}
+
+.event-day {
+    font-size: 2rem;
+}
+
+.event {
+    margin-top: 3rem;
+    color: #fff;
+    font-family: monospace;
+}
+
+/* ------------------------ */
+/*      RIGHT CALENDAR      */
+/* ------------------------ */
 .calendar-wrapper {
     width: 30vw;
-    min-height: 60vh;
+    min-height: 70vh;
     position: relative;
     background-color: #fff;
 }
@@ -101,7 +149,11 @@
     border-radius: 50%;
 }
 
-.today::after {
+.eventDay {
+    position: relative;
+}
+
+.eventDay::after {
     content: '';
     width: 5px;
     height: 5px;
